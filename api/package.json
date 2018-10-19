@@ -1,0 +1,11 @@
+{
+  "name": "med-tracker",
+  "version": "1.0.0",
+  "description": "ihackathon",
+  "main": "app.js",
+  "scripts": {
+    "test": ""
+  },
+  "author": "edwin walela",
+  "license": "ISC"
+}

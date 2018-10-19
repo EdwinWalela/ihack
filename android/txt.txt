@@ -1,0 +1,1 @@
+You can add your flutter code in this directory so that we can work from one repo. This document is not neccessary you can delete it
