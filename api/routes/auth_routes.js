@@ -1,19 +1,28 @@
 const router = require('express').Router();
-const passport = require('passport');
+const SHA256 = require('crypto-js/sha256');
+const User = require('../models/user');
+const keys = require('../config/keys')
 
-router.get('/google',passport.authenticate('google',{
-    scope:['profile']
-}))
+router.post('/login',(req,res)=>{
+    User.findOne({email:req.body.email}).then(user=>{
 
-router.get('/google/redirect',passport.authenticate('google'),(req,res)=>{
-    res.json('logged in')
-})
-
-router.get('/logout',(req,res)=>{
-    // handle with passport
-    req.logout();
-    res.json('logged out')
-    //redirect 
+        let password = SHA256(req.body.password+keys.salt);
+        let passwordHash = user.password;
+        
+        if(password == passwordHash){
+            user.password = null;
+            res.status(200).json({
+                'msg':'OK',
+                'user':user
+            })
+        }else{
+            res.status(404).json({
+                'msg':'incorrect login details'
+            })
+        }
+    }).catch(err=>{
+        res.status(500).json(err)
+    })
 })
 
 module.exports = router;
