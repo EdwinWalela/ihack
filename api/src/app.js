@@ -18,6 +18,7 @@ mongoose.connect(keys.mongo.URI,{useNewUrlParser:true}).then(()=>{
 })
 
 app.use(express.urlencoded({extended:true}));
+app.set('view engine', 'ejs');
 app.use('/auth',auth_routes);
 app.use('/api',api_routes);
 

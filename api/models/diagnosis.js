@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const diagnosisSchema = new Schema({
    userID:String,
    diagnosis:String,
-   diagnosisID:Number,
+   symptoms:String,
    dosage:String,
    center:String,
    date:Date,

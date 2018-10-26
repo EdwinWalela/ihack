@@ -4,16 +4,20 @@
   "description": "ihackathon",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon ./src/app.js"
+    "start": "node ./src/app.js"
   },
   "author": "edwin walela",
   "license": "ISC",
   "dependencies": {
+    "@sendgrid/mail": "^6.3.1",
     "cookie-session": "^2.0.0-beta.3",
     "crypto-js": "^3.1.9-1",
+    "cryptr": "^4.0.0",
+    "ejs": "^2.6.1",
     "express": "^4.16.4",
     "mongoose": "^5.3.4",
     "passport": "^0.4.0",
-    "passport-google-oauth20": "^1.0.0"
+    "passport-google-oauth20": "^1.0.0",
+    "sendmail": "^1.4.1"
   }
 }
